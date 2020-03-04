@@ -1,0 +1,72 @@
+/**
+ * css for videojs-watermark
+ * With the default plugins for postcss you can
+ * - @import files, they will be inlined during build
+ * - not worry about browser prefixes, they will be handled
+ * - nest selectors. This follows the css specification that is
+ *   currently out on some browsers. See https://tabatkins.github.io/specs/css-nesting/
+ * - custom properties (aka variables) via the var(--var-name) syntax. See
+ *   https://www.w3.org/TR/css-variables-1/
+ */
+
+
+/* Note: all vars must be defined here, there are no "local" vars */
+:root {
+  --main-color: red;
+  --base-font-size: 9;
+  --font-size: 7;
+}
+
+.video-js {
+
+  &.vjs-watermark {
+    /* This class is added to the video.js element by the plugin by default. */
+    display: block;
+
+    & .vjs-watermark-content {
+        /*z-index: 1;*/
+        opacity: 0.99;
+        position: absolute;
+        padding: 5px;
+        transition: visibility 1.0s, opacity 1.0s
+      }
+
+    & .vjs-watermark-top-right {
+        right: 0;
+        top: 0;
+      }
+
+    & .vjs-watermark-top-left {
+        left: 0;
+        top: 0;
+      }
+
+    & .vjs-watermark-bottom-right {
+        right: 0;
+        bottom: 30px;
+      }
+
+    & .vjs-watermark-bottom-left {
+        left: 0;
+        bottom: 30px;
+      }
+
+    & .vjs-watermark-fade-in {
+        opacity: 1;
+      }
+
+    & .vjs-watermark-fade-out {
+        opacity: 0;
+      }
+
+    & .vjs-watermark-text {
+        font-size: 1em;
+        background: rgba(255, 255, 255, 0.6);
+        width: fit-content;
+        padding: 3px;
+        color: rgba(0, 0, 0, 0.6);
+        /*cursor: pointer;*/
+        border-radius: 5px;
+      }
+  }
+}
